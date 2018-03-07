@@ -46,6 +46,7 @@ public class BasicTest extends Base{
             driver.findElement(By.id(propHome.getProperty("mainSearchButton"))).click();
             WebelementFunction webelementFunction = new WebelementFunction();
             webelementFunction.listhandling(listOfActualPrice,"271");
+            webelementFunction.listhandling(listOfActualPrice,"271");
         } catch (Exception e) {
             e.printStackTrace();
             e.printStackTrace();
