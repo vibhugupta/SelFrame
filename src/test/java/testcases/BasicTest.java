@@ -48,7 +48,7 @@ public class BasicTest extends Base{
             webelementFunction.listhandling(listOfActualPrice,"271");
         } catch (Exception e) {
             e.printStackTrace();
-             e.printStackTrace();
+             
         }
 
     }
