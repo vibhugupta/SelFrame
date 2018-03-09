@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -18,7 +17,7 @@ public class WebelementFunction extends Base{
     String homeFile = System.getProperty("user.dir") + "\\src\\test\\resources\\locatorsfile\\home.properties";
     Properties propHome;
 
-    public void listhandling(String listWebelement,String value) throws Exception {
+    public void clickOnParticularValueInAList(String listWebelement,String value) throws Exception {
         List<WebElement> allOptions = getElements(listWebelement);
         for (WebElement we : allOptions) {
             if (we.getText().contains(value)) {
@@ -27,8 +26,29 @@ public class WebelementFunction extends Base{
         }
     }
 
+    public void matchedWhetherAListContainingParticularValue(String listWebelement,String value) throws Exception {
+        boolean valueMatched= false;
+        List<WebElement> allOptions = getElements(listWebelement);
+        try{
+            for (WebElement we : allOptions) {
+                if (we.getText().equalsIgnoreCase(value)) {
+                    System.out.println("Text matched is  : "+value);
+                    valueMatched=true;
+                    break;
+                }
+            }
+            if(valueMatched==false) {
+                throw new Exception(String.format("List did not containn matched value", value));
+            }
+        } catch (Exception e){
+            throw new Exception (String.format("List did not containn matched value",value));
+
+        }
+
+    }
+
     public void untilVisible(String locatorToVisible){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.or(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorToVisible))
         ));
