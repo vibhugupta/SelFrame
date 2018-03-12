@@ -25,7 +25,7 @@ public class Base {
         propConfig = PropertyFileReader.propertyReader(configFile);
         System.setProperty("webdriver.chrome.driver", chromeDriverFileLocation);
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(propConfig.getProperty("URL"));
     }

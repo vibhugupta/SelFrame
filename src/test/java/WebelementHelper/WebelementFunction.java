@@ -3,6 +3,7 @@ package WebelementHelper;
 import helper.PropertyFileReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
@@ -132,5 +133,12 @@ public class WebelementFunction extends Base{
 
         return elementList;
 
+    }
+
+    public void moseHoverFunction(String locatorOnWhichMouseHover , String locatorToClick) throws Exception {
+
+        WebElement element = getElement(locatorOnWhichMouseHover);
+        Actions action = new Actions(driver);
+        action.moveToElement(element).moveToElement(getElement(locatorToClick)).click().build().perform();
     }
 }
