@@ -135,10 +135,19 @@ public class WebelementFunction extends Base{
 
     }
 
-    public void moseHoverFunction(String locatorOnWhichMouseHover , String locatorToClick) throws Exception {
+    public void moseHoverAndClick(String locatorOnWhichMouseHover , String locatorToClick) throws Exception {
 
         WebElement element = getElement(locatorOnWhichMouseHover);
         Actions action = new Actions(driver);
         action.moveToElement(element).moveToElement(getElement(locatorToClick)).click().build().perform();
+    }
+
+    public String moseHoverAndGetText(String locatorOnWhichMouseHover , String locatorToClick) throws Exception {
+
+        WebElement element = getElement(locatorOnWhichMouseHover);
+        Actions action = new Actions(driver);
+        action.moveToElement(element).moveToElement(getElement(locatorToClick)).build().perform();
+        String s = getElement(locatorToClick).getText();
+        return s;
     }
 }

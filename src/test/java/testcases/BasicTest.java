@@ -6,6 +6,7 @@ package testcases;
 
 
 import WebelementHelper.Base;
+import WebelementHelper.WaitHelper;
 import WebelementHelper.WebelementFunction;
 import helper.ExcelReader;
 import helper.PropertyFileReader;
@@ -30,7 +31,7 @@ public class BasicTest extends Base {
     String testResultFile = System.getProperty("user.dir") + "\\src\\test\\resources\\testSheets\\testdata.xlsx";
     Properties propHome, propconfig;
 
-    /*  @Test
+      @Test
       public void testEasy() throws Exception {
           try {
               ExcelReader excelReader = new ExcelReader();
@@ -44,7 +45,7 @@ public class BasicTest extends Base {
              webelementFunction.getElement("historyButton").click();
               webelementFunction.getElement("mainSearchBox").sendKeys(excelReader.readExcelData(valueReadingFile,"Sheet1","mainSearchBox"));
               webelementFunction.getElement("mainSearchButton").click();
-              webelementFunction.listhandling("listOfActualPrice", excelReader.readExcelData(valueReadingFile,"Sheet1","listOfActualPrice"));
+              webelementFunction.matchedWhetherAListContainingParticularValue("listOfActualPrice", excelReader.readExcelData(valueReadingFile,"Sheet1","listOfActualPrice"));
 
              int rowNumberForSpecificTest = excelReader.getRowNumberForSpecificTest(testResultFile,"Shopping","1");
              int columnNumberForSpecificTest = excelReader.getColumnNumberForSpecificTest(testResultFile,"Shopping");
@@ -56,9 +57,9 @@ public class BasicTest extends Base {
           }
 
       }
-      */
-    @Test
-    public void testEasy() throws Exception {
+
+   // @Test
+ /*   public void testEasy() throws Exception {
         ExcelReader excelReader = new ExcelReader();
         int rowNumberForSpecificTest = excelReader.getRowNumberForSpecificTest(testResultFile, "Shopping", "1");
         int columnNumberForSpecificTest = excelReader.getColumnNumberForSpecificTest(testResultFile, "Shopping");
@@ -67,14 +68,14 @@ public class BasicTest extends Base {
             WebelementFunction webelementFunction = new WebelementFunction();
             String subscriptionPopUp = propHome.getProperty("historyButton");
 
-
             webelementFunction.untilVisible(subscriptionPopUp);
             webelementFunction.getElement("historyButton").click();
             System.out.println("Total Cards for History is : " + webelementFunction.getElements("card").size());
-            /*
+            WaitHelper.waitFor(2000);
             webelementFunction.matchedWhetherAListContainingParticularValue("card", "Dunkirk");
             excelReader.writeExcelData(testResultFile, "Shopping", rowNumberForSpecificTest, "PASS", columnNumberForSpecificTest);
-            webelementFunction.moseHoverFunction("mouseHoverFirstCard","postMouseHover");*/
+         //   webelementFunction.moseHoverAndClick("mouseHoverFirstCard","postMouseHover");
+            webelementFunction.moseHoverAndGetText("mouseHoverFirstCard","postMouseHover");
 
 
 
@@ -88,7 +89,7 @@ public class BasicTest extends Base {
         }
 
     }
-
+*/
 
 
 }
