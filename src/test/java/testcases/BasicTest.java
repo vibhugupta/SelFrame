@@ -45,12 +45,12 @@ public class BasicTest extends Base {
              webelementFunction.getElement("historyButton").click();
               webelementFunction.getElement("mainSearchBox").sendKeys(excelReader.readExcelData(valueReadingFile,"Sheet1","mainSearchBox"));
               webelementFunction.getElement("mainSearchButton").click();
-              webelementFunction.matchedWhetherAListContainingParticularValue("listOfActualPrice", excelReader.readExcelData(valueReadingFile,"Sheet1","listOfActualPrice"));
+           /*   webelementFunction.matchedWhetherAListContainingParticularValue("listOfActualPrice", excelReader.readExcelData(valueReadingFile,"Sheet1","listOfActualPrice"));
 
              int rowNumberForSpecificTest = excelReader.getRowNumberForSpecificTest(testResultFile,"Shopping","1");
              int columnNumberForSpecificTest = excelReader.getColumnNumberForSpecificTest(testResultFile,"Shopping");
               excelReader.writeExcelData(testResultFile,"Shopping",rowNumberForSpecificTest,"PAkSS",columnNumberForSpecificTest);
-          } catch (Exception e) {
+         */ } catch (Exception e) {
               e.printStackTrace();
               throw new Exception(String.format(
                       "Test Case Failed" ));
